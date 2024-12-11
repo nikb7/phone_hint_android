@@ -2,7 +2,7 @@
 
 Android phone hint flutter plugin for getting phone number directly from the device.
 
-
+![demo](https://github.com/user-attachments/assets/01a44b71-4332-41e7-b487-03c6d7ae926a)
 
 ## Setup & Usage
 
