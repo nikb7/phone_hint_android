@@ -7,11 +7,11 @@ import 'phone_hint_android_platform_interface.dart';
 class MethodChannelPhoneHintAndroid extends PhoneHintAndroidPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('phone_hint_android');
+  final methodChannel = const MethodChannel('com.technikb.phone_hint_android');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+  Future<String?> getPhoneNumber() async {
+    final version = await methodChannel.invokeMethod<String>('getPhoneNumber');
     return version;
   }
 }

@@ -55,7 +55,7 @@ class PhoneHintAndroidMethodCallHandler(private val activity: ComponentActivity)
   override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
     channelResult = result
     when (call.method) {
-      "getPlatformVersion" -> {
+      "getPhoneNumber" -> {
         requestPhoneHint()
       }
       else -> {
@@ -69,7 +69,7 @@ class PhoneHintAndroidMethodCallHandler(private val activity: ComponentActivity)
     fun register(flutterEngine: FlutterEngine, activity: ComponentActivity) {
       val handler = PhoneHintAndroidMethodCallHandler(activity)
 
-      MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "phone_hint_android")
+      MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.technikb.phone_hint_android")
         .setMethodCallHandler(handler)
     }
   }

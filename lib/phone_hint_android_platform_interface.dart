@@ -23,7 +23,7 @@ abstract class PhoneHintAndroidPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<String?> getPhoneNumber() {
+    throw UnimplementedError('phoneNumber() has not been implemented.');
   }
 }

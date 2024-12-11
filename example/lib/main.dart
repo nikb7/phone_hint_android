@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> _getPhoneHint() async {
-    final phoneNumber = await _phoneHintAndroidPlugin.getPlatformVersion();
+    final phoneNumber = await _phoneHintAndroidPlugin.getPhoneNumber();
     if (phoneNumber != null && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Phone hint: $phoneNumber')),
