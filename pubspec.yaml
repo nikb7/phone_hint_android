@@ -1,7 +1,7 @@
 name: phone_hint_android
 description: "Android phone hint flutter plugin"
 repository: https://github.com/nikb7/phone_hint_android
-version: 1.0.0
+version: 1.0.1
 homepage:
 
 environment:
