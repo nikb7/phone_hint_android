@@ -33,7 +33,7 @@ final phoneNumber = await PhoneHintAndroid().getPhoneNumber();
 - Not directly tied to sign in/up workflows
 - Wider support for Android versions compared to Autofill
 
-Utilised Google's [Phone Number Hint Api](https://developers.google.com/identity/smartlock-passwords/android/overview)
+Utilised Google's [Phone Number Hint Api](https://developers.google.com/identity/phone-number-hint/android)
 
 
 ### Support phone_hint_android

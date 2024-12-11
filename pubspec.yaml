@@ -1,7 +1,7 @@
 name: phone_hint_android
 description: "Flutter plugin for Phone Number Hint Api on Android, provides a frictionless way to show a user's (SIM-based) phone numbers as a hint."
 repository: https://github.com/nikb7/phone_hint_android
-version: 1.0.3
+version: 1.0.4
 homepage:
 
 environment:
