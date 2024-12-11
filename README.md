@@ -1,6 +1,6 @@
 # phone_hint_android
 
-Android phone hint flutter plugin for getting phone number directly from the device.
+Flutter plugin for Phone Number Hint Api on Android, provides a frictionless way to show a user's (SIM-based) phone numbers as a hint.
 
 ![demo](https://github.com/user-attachments/assets/c6c132eb-85e5-4870-8f1b-9a57ee5a4d3a)
 
@@ -25,6 +25,16 @@ Example usage:
 ```dart
 final phoneNumber = await PhoneHintAndroid().getPhoneNumber();
 ```
+
+### Benefits
+- No additional permission requests are needed
+- Eliminates the need for the user to manually type in the phone number
+- No Google account is needed
+- Not directly tied to sign in/up workflows
+- Wider support for Android versions compared to Autofill
+
+Utilised Google's [Phone Number Hint Api](https://developers.google.com/identity/smartlock-passwords/android/overview)
+
 
 ### Support phone_hint_android
 
