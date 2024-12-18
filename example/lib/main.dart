@@ -16,6 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _phoneHintAndroidPlugin = PhoneHintAndroid();
+  String? _phoneNumber;
 
   @override
   void initState() {
@@ -24,11 +25,14 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> _getPhoneHint() async {
+    setState(() {
+      _phoneNumber = null;
+    });
     final phoneNumber = await _phoneHintAndroidPlugin.getPhoneNumber();
     if (phoneNumber != null && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Phone hint: $phoneNumber')),
-      );
+      setState(() {
+        _phoneNumber = phoneNumber;
+      });
     }
   }
 
@@ -40,11 +44,21 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Phone hint example'),
         ),
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              _getPhoneHint();
-            },
-            child: const Text('Get phone hint'),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _getPhoneHint();
+                },
+                child: const Text('Get phone hint'),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              if (_phoneNumber != null) Text('Phone number: $_phoneNumber'),
+            ],
           ),
         ),
       ),
