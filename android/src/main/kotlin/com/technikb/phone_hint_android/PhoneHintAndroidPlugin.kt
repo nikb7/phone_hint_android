@@ -120,6 +120,12 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
                     val phoneNumber =
                         Identity.getSignInClient(activity!!).getPhoneNumberFromIntent(data)
                     channelResult.success(phoneNumber)
+                } else {
+                    channelResult.error(
+                        "PHONE_HINT_FAILURE",
+                        "User dismissed phone hint",
+                        null,
+                    )
                 }
             }
         }
@@ -137,6 +143,7 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
         bindingReference = null
         activity = null
     }
+
     companion object {
         private const val TAG = "PhoneHintMethodChannel"
         private const val PHONE_REQUEST = 11101

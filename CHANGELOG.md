@@ -1,3 +1,6 @@
+## 1.1.1
+- Fixed user hint dismissal issue
+
 ## 1.1.0
 * Improved plugin installation
 - No native changes required to install plugin
