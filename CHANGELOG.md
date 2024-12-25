@@ -1,3 +1,5 @@
+## 1.1.2
+- Upgraded gradle version
 ## 1.1.1
 - Fixed user hint dismissal issue
 
