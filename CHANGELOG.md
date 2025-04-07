@@ -1,3 +1,5 @@
+## 1.2.0
+- Fixes issue due to lateinit var
 ## 1.1.2
 - Upgraded gradle version
 ## 1.1.1

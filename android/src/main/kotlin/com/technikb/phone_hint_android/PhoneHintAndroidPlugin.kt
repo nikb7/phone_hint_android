@@ -21,8 +21,8 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
     ActivityAware,
     PluginRegistry.ActivityResultListener {
 
-    private lateinit var channelResult: MethodChannel.Result
-    private lateinit var channel: MethodChannel
+    private var channelResult: MethodChannel.Result? = null
+    private var channel: MethodChannel? = null
     private var activity: Activity? = null
     private var bindingReference: ActivityPluginBinding? = null
 
@@ -32,7 +32,7 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
 
     private fun requestPhoneHint() {
         if (activity == null) {
-            channelResult.error(
+            channelResult?.error(
                 "ACTIVITY_REF_NOT_FOUND",
                 "Activity not initialised",
                 null,
@@ -55,7 +55,7 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
 
                 } catch (e: Exception) {
                     Log.e(TAG, "Launching the PendingIntent failed")
-                    channelResult.error(
+                    channelResult?.error(
                         "PHONE_HINT_FAILURE",
                         "Launching the PendingIntent failed",
                         null
@@ -64,7 +64,7 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
             }
             .addOnFailureListener {
                 Log.e(TAG, "Phone Number Hint failed ${it.message}")
-                channelResult.error(
+                channelResult?.error(
                     "PHONE_HINT_FAILURE",
                     "Phone Number Hint failed ${it.message}",
                     null
@@ -80,7 +80,7 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
             }
 
             else -> {
-                channelResult.notImplemented()
+                channelResult?.notImplemented()
             }
         }
     }
@@ -90,11 +90,11 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
             binding.binaryMessenger,
             "com.technikb.phone_hint_android"
         )
-        channel.setMethodCallHandler(this)
+        channel?.setMethodCallHandler(this)
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
+        channel?.setMethodCallHandler(null)
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
@@ -119,9 +119,9 @@ class PhoneHintAndroidPlugin : FlutterPlugin,
                 if (data != null && resultCode == Activity.RESULT_OK && activity != null) {
                     val phoneNumber =
                         Identity.getSignInClient(activity!!).getPhoneNumberFromIntent(data)
-                    channelResult.success(phoneNumber)
+                    channelResult?.success(phoneNumber)
                 } else {
-                    channelResult.error(
+                    channelResult?.error(
                         "PHONE_HINT_FAILURE",
                         "User dismissed phone hint",
                         null,
